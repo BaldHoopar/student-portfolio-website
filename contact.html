@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Abdullahi Adedokun</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="https://img.icons8.com/?size=100&id=14096&format=png&color=000000" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/fde7d5a194.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo ">Abdullahi.dev</div>
+            <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="planner.html">Planner</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="page">
+        <div class="page-banner">
+            <div class="page-banner__inner">
+                <p class="page-banner__breadcrumb">
+                    <a href="index.html">Home</a> / Contact
+                </p>
+                <h1 class="page-banner__title">Get In <span>Touch</span></h1>
+                <p class="page-banner__subtitle">Internship, or a question? Lets connect!</p>
+            </div>
+        </div>
+
+        <!----contact-->
+        <section class="section section--light">
+            <div class="section__inner">
+                <div class="contact-layout">
+                    <!--Contact Info-->
+                    <div class="fade-in visible">
+                        <!---Contact Info   -->
+                        <div class="contact-info">
+                            <h3 style="color: var(--accent-color); font-size: 30px;font-family: cursive;">Let's connect</h3>
+                            <p>I'm open to software engineering internships, and mentorship conversations. I typically respond within 24 hours</p>
+                        </div>
+                        <div class="contact-details">
+                            <div class="contact-detail">
+                                <div class="contact-detail__icon"><i class="fa-solid fa-envelope"></i></div>
+                                <div class="contact-detail__label">Email</div>
+                                <div class="contact-detail__value">adedokunabdullahi434@gmail.com</div>
+                            </div>
+                            <div class="contact-detail">
+                                <div class="contact-detail__icon"><i class="fa-solid fa-phone"></i></div>
+                                <div class="contact-detail__label">Phone</div>
+                                <div class="contact-detail__value">+234 702 584 2849</div>  
+                            </div>
+                            <div class="contact-detail">
+                                <div class="contact-detail__icon"><i class="fa-solid fa-map-marker-alt"></i></div>
+                                <div class="contact-detail__label">Location</div>
+                                <div class="contact-detail__value">Lagos, Nigeria</div>
+                            </div>
+                            <div class="contact-detail">
+                                <div class="contact-detail__icon"><i class="fa-solid fa-graduation-cap"></i></i></div>
+                                <div class="contact-detail__label">Institution</div>
+                                <div class="contact-detail__value">Miva Open University, Abuja</div>
+                            </div>
+                        </div>
+                        <!---Socials-->
+                        <div>
+                            <p class="find-me" style="color: black;">Find Me Online</p>
+                            <div style="display: block;">
+    
+                               <a href="#" class="social-link" style="text-decoration: none;"><span class="social-link__icon" style="color: var(--accent-color);"><i class="fa-brands fa-github"></i></span>github.com/abdullahiadedokun</a> 
+    
+                               <a href="#" class="social-link" style="text-decoration: none;"><span class="social-link__icon" style="color: var(--accent-color);"><i class="fa-brands fa-linkedin"></i></span>linkedin.com/in/abdullahiadedokun</a> 
+                               <a href="#" class="social-link" style="text-decoration: none;"><span class="social-link__icon" style="color: var(--accent-color);"><i class="fa-brands fa-x-twitter"></i></span>@dokunAbd</a>  
+                            </div>
+                        </div>
+                        <!---availability-->
+                        <div class="availability" style="margin-top: 2.5rem;border: 2px solid var(--leafy-green);border-radius: var(--radius-md);padding: 1.25rem;display: inline-block;align-items: center;gap: 0.75rem;">
+                            <div style="color: var(--leafy-green);font-weight: 600;">Available for internships</div>
+                            <div>Starting September 2026 . Open to remote & on-site  roles in Lagos and Port Harcourt</div>
+                        </div>
+                    </div>
+                    <!--Contact Form-->
+                    <div class="fade-in visible">
+                        <div class="contact-form-card">
+                            <h3>Send me a Message</h3>
+                            <form id="contactForm">
+                                <div>
+                                    <div class="form-group">
+                                        <label for="contactName"> FullName *</label>
+                                        <input type="text" id="contactName" class="form-input" placeholder="Your Name" required aria-required="true" autocomplete="name">
+                                        <!--<span class="form-error visible" id="contactNameError" role="alert">Please enter your full name (at least 2 characters)</span>-->
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contactEmail">Email address *</label>
+                                        <input type="email" id="contactEmail" class="form-input error" placeholder="Your Email" required aria-required="true" autocomplete="email">
+                                        <!--<span class="form-error visible" id="contactEmailError" role="alert">Please enter a valid email address</span>-->
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactPhone">Phone Number *</label>
+                                    <input type="tel" id="contactPhone" class="form-input error" placeholder="+234 800 000 0000" required aria-required="true" autocomplete="tel">
+                                    <!--<span class="form-error visible" id="contactPhoneError" role="alert">Phone number must contain only digits (7-15 digits)</span>-->
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactSubject">Subject</label>
+                                    <select id="contactSubject" class="form-select">
+                                        <option value="">Select a subject</option>
+                                        <option value="Internship">Internship</option>
+                                        <option value="general">General Enquiry</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactMessage">Message *</label>
+                                    <textarea id="contactMessage" class="form-textarea" rows="5" placeholder="What do you have in mind?" required aria-required="true"></textarea>
+                                    <!--<span class="form-error visible" id="contactMessageError" role="alert">Message must be at least 10 characters</span>-->
+                                </div>
+                                <button type="submit" class="btn btn--primary">Send Message</button>
+                                <div class="form-success" id="formSuccess" role="alert">
+                                    ✅ Message sent successfully! I'll get back to you within 24 hours.
+                                </div>
+                
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!---FAQ-->
+        <section class="section section--dark" aria-label="Frequently asked questions">
+            <div class="section__inner">
+                <header class="section_header fade-in visible">
+                    <p class="section__eyebrow">Common Questions</p>
+                    <h2>Frequently Asked Questions</h2>
+                </header>
+                <div class="fade">
+                    <div class="fade-in visible">
+                        <h3>What type of internship opportunities are you looking for?</h3>
+                        <p>software engineering or full-stack web development internships, ideally in Lagos, Port Harcourt, or remote. Available from September 2026.</p>
+                    </div>
+                    <div class="fade-in visible">
+                        <h3>How quickly do you respond?</h3>
+                        <p>Within 24 hours on weekdays. During exam periods, it may take up to 48 hours - kindly bear with me.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="footer" role="contentinfo">
+        <div class="footer__inner">
+            <div class="footer__top">
+                <div>
+                    <div class="footer__brand">
+                        Abdullahi.dev
+                        
+                    </div>
+                    <p class="footer__tagline">Software Engineering student at Miva Open University, building products that make a difference.</p>
+                </div>
+                <div class="footer__navigation">
+                    <p class="footer__column-title">navigation</p>
+
+                    <nav class="footer__links" aria-label="Footer navigation">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About</a>
+                        <a href="projects.html">Projects</a>
+                        <a href="planner.html">Planner</a>
+                        <a href="contact2.html">Contact</a>
+                    </nav>
+                </div>
+                <div>
+                    <p class="footer__column-title">Connect</p>
+                    <nav class="footer__links" aria-label="Social media links">
+                        <a href="https://github.com/BaldHoopar" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        <a href="https://www.linkedin.com/in/abdullahi-adedokun-46224b2a5" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        <a href="https://x.com/dokunAbd" target="_blank" rel="noopener noreferrer">X</a>
+                        
+                        
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>&copy; 2026 Abdullahi Adedokun. Built with HTML, CSS, and JavaScript.</p>
+            <div class="footer__social">
+                <a href="https://github.com/BaldHoopar" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/abdullahi-adedokun-46224b2a5" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://x.com/dokunAbd" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fa-brands fa-x-twitter"></i></i></a>
+            </div>
+        </div>
+    </footer>
+    <!---script to validate contact form input-->
+    <script src="js/validation.js"></script>
+    <!-- Automatically highlights the correct navigation link based on current page -->
+    <script src="js/nav.js"></script>
+
+</body>
+</html>

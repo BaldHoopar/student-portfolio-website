@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planner | Abdullahi Adedokun</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="https://img.icons8.com/?size=100&id=14096&format=png&color=000000" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/fde7d5a194.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo ">Abdullahi.dev</div>
+            <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="planner.html">Planner</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- Main Content Area -->
+    <main class="planner-dashboard-container">
+        <div class="page-banner">
+            <div class="page-banner__inner">
+                <p class="page-banner__breadcrumb">
+                    <a href="index.html">Home</a> / Planner
+                </p>
+                <h1 class="page-banner__title">Academic <span>Planner</span></h1>
+                <p class="page-banner__subtitle">Organize, prioritize, and filter your university course milestones efficiently.</p>
+            </div>
+        </div>
+        
+        
+
+        <!-- Metrics/Filtering Summary Bars at the Top -->
+        <section class="metrics-container">
+            <div class="metric-card active-filter" id="filterAll" data-filter="all">
+                <h3>All Tasks</h3>
+                <span id="countAll" class="badge">0</span>
+            </div>
+            <div class="metric-card" id="filterPending" data-filter="pending">
+                <h3>Pending Tasks</h3>
+                <span id="countPending" class="badge">0</span>
+            </div>
+            <div class="metric-card" id="filterCompleted" data-filter="completed">
+                <h3>Completed Tasks</h3>
+                <span id="countCompleted" class="badge">0</span>
+            </div>
+        </section>
+
+        <!-- Split Layout Wrapper: Form on Left, Output List on Right -->
+        <div class="dashboard-grid">
+            
+            <!-- 1. Detailed Task Creation Form Card -->
+            <section class="form-card">
+                <h2>Create New Task</h2>
+                <form id="taskForm">
+                    
+                    <!-- Task Title Input -->
+                    <div class="input-control">
+                        <label for="taskTitle">Task Title *</label>
+                        <input type="text" id="taskTitle" placeholder="e.g., Complete COS 106 Project" required>
+                    </div>
+
+                    <!-- Category Dropdown Input -->
+                    <div class="input-control">
+                        <label for="taskCategory">Category</label>
+                        <select id="taskCategory" required>
+                            <option value="" disabled selected>-- Select Category --</option>
+                            <option value="Assignments">Assignments</option>
+                            <option value="Exams & Quizzes">Exams prep</option>
+                            <option value="Exams & Quizzes">Projects</option>
+                            <option value="Exams & Quizzes">Lab / Practical</option>
+                            <option value="Study Sessions">Study Sessions</option>
+                            <option value="Lectures">Lectures</option>
+                            <option value="Lectures">Others</option>
+                        </select>
+                    </div>
+
+                    <!-- Priority Dropdown Input -->
+                    <div class="input-control">
+                        <label for="taskPriority">Priority Tier</label>
+                        <select id="taskPriority" required>
+                            <option value="High"> 🔥 High</option>
+                            <option value="Medium" selected> 🕯️  Medium</option>
+                            <option value="Low">❄️  Low</option>
+                        </select>
+                    </div>
+
+                    <!-- Due Date Input -->
+                    <div class="input-control">
+                        <label for="taskDueDate">Due Date *</label>
+                        <input type="date" id="taskDueDate" required>
+                    </div>
+
+                    <!-- Notes Input -->
+                    <div class="input-control">
+                        <label for="taskNotes">Notes (Optional)</label>
+                        <textarea id="taskNotes" rows="3" placeholder="Enter additional details or references..."></textarea>
+                    </div>
+
+                    <!-- Form Trigger Button -->
+                    <button type="submit" id="addTaskBtn" class="submit-task-btn">Add Task</button>
+                </form>
+            </section>
+
+            <!-- 2. Interactive Task Display Board -->
+            <section class="display-card">
+                <h2 id="currentViewTitle">Showing All Tasks</h2>
+                
+                <!-- Target container where structured tasks get rendered via DOM injection -->
+                <div id="taskListContainer" class="task-board-list">
+                    <!-- Task items will be dynamically generated by JS here -->
+                    <p class="empty-msg">No tasks found. Create a new task to get started!</p>
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+
+    
+    <footer class="footer" role="contentinfo">
+        <div class="footer__inner">
+            <div class="footer__top">
+                <div>
+                    <div class="footer__brand">
+                        Abdullahi.dev
+                    </div>
+                    <p class="footer__tagline">Software Engineering student at Miva Open University, building products that make a difference.</p>
+                </div>
+                <div >
+                    <p class="footer__column-title">navigation</p>
+
+                    <nav class="footer__links" aria-label="Footer navigation">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About</a>
+                        <a href="projects.html">Projects</a>
+                        <a href="planner.html">Planner</a>
+                        <a href="contact2.html">Contact</a>
+                    </nav>
+                </div>
+                <div>
+                    <p class="footer__column-title">Connect</p>
+                    <nav class="footer__links" aria-label="Social media links">
+                        <a href="https://github.com/BaldHoopar" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        <a href="https://www.linkedin.com/in/abdullahi-adedokun-46224b2a5" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        <a href="https://x.com/dokunAbd" target="_blank" rel="noopener noreferrer">X</a>
+                        
+                        
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>&copy; 2026 Abdullahi Adedokun. Built with HTML, CSS, and JavaScript.</p>
+            <div class="footer__social">
+                <a href="https://github.com/BaldHoopar" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/abdullahi-adedokun-46224b2a5" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://x.com/dokunAbd" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fa-brands fa-x-twitter"></i></i></a>
+            </div>
+        </div>
+    </footer>
+    <!-- Linking the specific JavaScript logic script for the academic planner -->
+    <script src="js/planner.js"></script>
+    <!-- Automatically highlights the correct navigation link based on current page -->
+    <script src="js/nav.js"></script>
+</body>
+</html>
+</body>
+</html>
