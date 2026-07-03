@@ -1,22 +1,50 @@
 // ==========================================================================
-// CONTACT FORM VALIDATION ENGINE (Miva Portfolio Theme)
+// CONTACT FORM VALIDATION ENGINE (Miva Portfolio Theme) - UPDATED
 // ==========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contactForm');
     const successMessage = document.getElementById('formSuccess');
 
-    // Hide success message explicitly on load
+    // 1. Force hidden visibility state on success banner on initial load
     if (successMessage) {
         successMessage.style.display = 'none';
     }
 
-    if (!contactForm) return;
+    // 2. HARD RESET: Wipe out lingering text inputs the browser tries to cache on back-navigation
+    if (contactForm) {
+        contactForm.reset();
+    }
 
+    // 3. PURGE HISTORICAL DOM ERRORS: Delete any error elements restored by the browser history cache
+    document.querySelectorAll('.form-error').forEach(span => {
+        span.style.display = 'none';
+        span.remove(); 
+    });
+
+    document.querySelectorAll('.form-input, .form-select, .form-textarea').forEach(input => {
+        input.classList.remove('error'); 
+    });
+
+    if (!contactForm) return; // Exit safety block
+
+    // 4. Back/Forward Cache (bfcache) Reset Handler
+    window.addEventListener('pageshow', () => {
+        if (contactForm) contactForm.reset();
+        
+        const nameInput = document.getElementById('contactName');
+        const emailInput = document.getElementById('contactEmail');
+        const phoneInput = document.getElementById('contactPhone');
+        const messageInput = document.getElementById('contactMessage');
+        
+        removeErrorStyles([nameInput, emailInput, phoneInput, messageInput]);
+    });
+
+    // 5. Submit Event Listener Layout Check
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault(); // Stop standard form submission reload
 
-        // 1. Gather form input elements
+        // Gather form input elements
         const nameInput = document.getElementById('contactName');
         const emailInput = document.getElementById('contactEmail');
         const phoneInput = document.getElementById('contactPhone');
@@ -24,36 +52,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let isValid = true;
 
-        // 2. Clear out old execution error treatments
+        // Clear out old execution error treatments
         removeErrorStyles([nameInput, emailInput, phoneInput, messageInput]);
 
-        // 3. Name Validation (must be at least 2 characters)
+        // Name Validation (must be at least 2 characters)
         if (nameInput.value.trim().length < 2) {
             applyErrorStyle(nameInput, "Please enter your full name (at least 2 characters)");
             isValid = false;
         }
 
-        // 4. Email Validation (Regex Check)
+        // Email Validation (Regex Check)
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(emailInput.value.trim())) {
             applyErrorStyle(emailInput, "Please enter a valid email address");
             isValid = false;
         }
 
-        // 5. Phone Validation (Simple global numbers check: 7-15 digits)
+        // Phone Validation (Simple global numbers check: 7-15 digits)
         const phoneRegex = /^\+?[0-9\s\-]{7,15}$/;
         if (!phoneRegex.test(phoneInput.value.trim())) {
             applyErrorStyle(phoneInput, "Phone number must contain only valid digits (7-15 digits)");
             isValid = false;
         }
 
-        // 6. Message Validation (must be at least 10 characters)
+        // Message Validation (must be at least 10 characters)
         if (messageInput.value.trim().length < 10) {
             applyErrorStyle(messageInput, "Message must be at least 10 characters long");
             isValid = false;
         }
 
-        // 7. Success Action Block Handling
+        // Success Action Block Handling
         if (isValid) {
             // Display the success success banner element
             if (successMessage) {
