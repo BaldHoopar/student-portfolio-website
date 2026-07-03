@@ -23,3 +23,47 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+// Dynamic Navigation Switch Initialization
+const initMobileMenu = () => {
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    if (!menuToggle || !navLinks) {
+        console.warn("Navigation components missing from DOM context structure.");
+        return;
+    }
+
+    menuToggle.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevents bubbling issues
+        
+        // Toggle layout classes
+        navLinks.classList.toggle('active');
+        
+        // Dynamically alter font icons
+        const icon = menuToggle.querySelector('i');
+        if (navLinks.classList.contains('active')) {
+            icon.className = 'fa-solid fa-xmark';
+            menuToggle.setAttribute('aria-expanded', 'true');
+        } else {
+            icon.className = 'fa-solid fa-bars';
+            menuToggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    // Close down layout trays if background views are targeted
+    document.addEventListener('click', (e) => {
+        if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+            navLinks.classList.remove('active');
+            const icon = menuToggle.querySelector('i');
+            if(icon) icon.className = 'fa-solid fa-bars';
+            menuToggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+};
+
+// Execute across active states
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMobileMenu);
+} else {
+    initMobileMenu();
+}

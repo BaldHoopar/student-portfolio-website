@@ -9,7 +9,6 @@
 }
 
 :root {
-    
     --primary-color: #0d233a;     /* Deep Blue */
     --accent-color: #e63946;      /* Vibrant Accent Red */
     --accent-hover: #c32f3a;
@@ -37,7 +36,7 @@ body {
 }
 
 /* ==========================================================================
-   2. GLOBAL NAVIGATION & FOOTER (SHARED LAYOUTS)
+   2. DESKTOP LAYOUT, NAVIGATION & FOOTER
    ========================================================================== */
 header {
     position: sticky;
@@ -52,7 +51,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 0.75rem 5%;
-    position: sticky;
+    position: relative;
     top: 0;
     z-index: 1000;
     box-shadow: var(--shadow-md);
@@ -63,7 +62,6 @@ header {
     font-weight: 700;
     color: var(--text-white);
     letter-spacing: 0.5px;
-    
 }
 
 .nav-links {
@@ -93,24 +91,122 @@ header {
     border: 1px solid rgba(168, 85, 247, 0.3);
 }
 
-footer {
-    background-color: var(--primary-color);
-    color: #94a3b8;
-    text-align: center;
-    padding: 1.5rem;
-    margin-top: 4rem;
-    font-size: 0.9rem;
+.menu-toggle {
+    display: none; /* Hidden on desktop screens */
+}
+
+main {
+    min-height: 80vh;
+}
+
+/* Footer Design */
+.footer {
+    background-color: var(--primary-color); 
+    color: var(--text-muted, #94a3b8);       
+    padding: 4rem 0 2rem 0;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    border-top: 1px solid var(--border-color);
+    width: 100%;
+}
+
+.footer__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+.footer__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 3rem;
+    flex-wrap: wrap;                  
+}
+
+.footer__top > div:first-child {
+    flex: 2;
+    min-width: 250px;
+}
+
+.footer__top > div:not(:first-child) {
+    flex: 1;
+    min-width: 150px;
+}
+
+.footer__brand {
+    color: var(--text-white, #ffffff); 
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.footer__tagline {
+    line-height: 1.6;
+    font-size: 0.95rem;
+    max-width: 340px;
+    color: var(--text-muted, #94a3b8);
+    text-align: left;
+}
+
+.footer__column-title {
+    color: var(--text-white, #ffffff);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 1.25rem;
+    font-weight: 600;
+}
+
+.footer__links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.footer__links a {
+    color: var(--text-muted, #94a3b8);
+    text-decoration: none;
+    font-size: 0.95rem;
+    width: fit-content;
+    transition: color 0.2s ease;
+}
+
+.footer__links a:hover {
+    color: var(--leafy-green);         
+}
+
+.footer__bottom {
+    max-width: 1200px;
+    margin: 3.5rem auto 0 auto;
+    padding: 1.5rem 5% 0 5%;
+    border-top: 1px solid rgba(255, 255, 255, 0.05); 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--text-muted, #94a3b8);
+}
+
+.footer__social {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.footer__social a {
+    color: var(--text-muted, rgba(255, 255, 255, 0.4));
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer__social a:hover {
+    color: var(--leafy-green);         
+    transform: translateY(-2px);
 }
 
 /* ==========================================================================
    3. GENERAL REUSABLE TYPOGRAPHY & LAYOUT UTILITIES
    ========================================================================== */
-main {
-    min-height: 80vh;
-}
-
-
-
 .btn {
     display: inline-block;
     padding: 0.75rem 1.5rem;
@@ -132,9 +228,6 @@ main {
     transform: translateY(-2px); 
 }
 
-/* ==========================================================================
-   4. CONTACT PAGE LAYOUT DESIGN (BEM Structure Matching Your File)
-   ========================================================================== */
 .page-banner {
     background: linear-gradient(135deg, var(--primary-color) 0%, #1e3a5f 100%);
     color: var(--text-white);
@@ -182,191 +275,13 @@ main {
     color: var(--text-white);
 }
 
-.fade {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;                 
-    margin-top: 2.5rem;
-}
-
-/* Target ONLY the layout divs inside the .fade container, leaving the section header alone */
-.fade > div {
-    flex: 1;                     
-    background: #ffffff;  
-    padding: 1.5rem;
-    border-radius: var(--radius-md);
-    border: 1px solid var(--border-color);
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition-smooth);
-}
-
-.fade > div h3 {
-    color: #0f172a ;  
-    margin-bottom: 0.75rem;
-    font-size: 1.15rem;
-    font-weight: 600;
-}
-
-.fade > div p {
-    color: #334155 ;   
-    font-size: 0.95rem;
-    line-height: 1.5;
-}
-
-/* Miva green hover glow effect on the question cards */
-.fade > div:hover {
-    transform: translateY(-4px);
-    border-color: var(--leafy-green);
-    box-shadow: 0 4px 20px rgba(42, 157, 143, 0.15);
-}
-
-@media (max-width: 768px) {
-    .fade > div {
-        flex: 1 1 100%;
-    }
-}
-.contact-layout {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 4rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.contact-details {
-    margin: 2rem 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-}
-
-.contact-detail {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    background: var(--card-bg);
-    padding: 1rem;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
-}
-
-.contact-detail__icon {
-    color: var(--accent-color);
-    font-size: 1.25rem;
-}
-
-.contact-detail__label {
-    font-weight: 600;
-    min-width: 100px;
-}
-
-.contact-form-card {
-    background: var(--card-bg);
-    padding: 2.5rem;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-}
-
-.form-input, .form-select, .form-textarea {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    font-size: 1rem;
-    transition: var(--transition-smooth);
-}
-
-.form-input:focus, .form-select:focus, .form-textarea:focus {
-    outline: none;
-    border-color: var(--accent-color);
-    box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.15);
-}
-
-.form-success {
-    display: none; /* Initially hidden, triggered via JS later */
-    margin-top: 1rem;
-    padding: 1rem;
-    background-color: rgba(42, 157, 143, 0.15);
-    border-left: 4px solid var(--leafy-green);
-    color: #1b655c;
-    border-radius: 4px;
-}
-
 /* ==========================================================================
-   5. RESPONSIVE MEDIA QUERIES (MOBILE-FRIENDLY INTERFACE)
+   4. HOMEPAGE STYLING (Hero, Overview Table & Highlights)
    ========================================================================== */
-@media (max-width: 968px) {
-    .contact-layout {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
-    }
-
-    .nav-links {
-        display: flex;
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 0.75rem;
-        padding: 0;
-    }
-
-    .nav-links li a {
-        font-size: 0.9rem;
-        padding: 0.4rem 0.6rem;
-    }
-
-    .page-banner {
-        padding: 3rem 1rem;
-    }
-    
-    .contact-form-card {
-        padding: 1.5rem;
-    }
-
-    .section {
-        padding: 2rem 3%;
-    }
-
-    .contact-form-card, .form-card, .display-card {
-        padding: 1.25rem;
-    }
-
-    .contact-detail {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.25rem;
-    }
-
-    .contact-detail__label {
-        min-width: auto;
-    }
-}
-
-/* ==========================================================================
-   6. HOMEPAGE STYLING (Hero, Overview Table & Highlights)
-   ========================================================================== */
-
 .hero__intro {
     color: #991b1b;
 }
+
 .hero-section {
     display: flex;
     align-items: center;
@@ -402,7 +317,6 @@ main {
     box-shadow: var(--shadow-sm);
 }
 
-/* Reusable Section Headers */
 main h2 {
     color: var(--primary-color);
     margin-bottom: 1rem;
@@ -411,7 +325,13 @@ main h2 {
     padding-bottom: 0.5rem;
 }
 
-/* Semantic Status Table Requirement */
+.table-container {
+    width: 100%;
+    overflow-x: auto; 
+    -webkit-overflow-scrolling: touch; 
+    margin-top: 1.5rem;
+}
+
 .status-table {
     width: 100%;
     border-collapse: collapse;
@@ -430,7 +350,6 @@ main h2 {
     font-weight: 600;
 }
 
-/* Reusable Bullet Lists */
 .highlights-list, .education-list, .hobbies-list {
     list-style-position: inside;
     margin-top: 1rem;
@@ -441,9 +360,65 @@ main h2 {
     color: var(--text-dark);
 }
 
+.multimedia-container {
+    max-width: 1200px;         
+    margin: 2rem auto;         
+    padding: 0 1.5rem;         
+    width: 100%;
+}
+
+.about-video {
+    width: 100%;               
+    max-width: 800px;          
+    display: block;            
+    margin: 1.5rem auto 0;     
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+}
+
+.about-audio {
+    display: block;
+    width: 100%;
+    margin-top: 2rem;
+    max-width: 1200px;
+}
+
 /* ==========================================================================
-   7. ABOUT ME PAGE STYLING (Skill Progress Bars & Video Layout)
+   5. ABOUT ME PAGE LAYOUT (Goals, Hobbies, Skills Progress)
    ========================================================================== */
+.goals-container, .hobbies-list {
+    display: flex;
+    gap: 1.5rem;                 
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+.hobbies-list {
+    list-style: none;            
+    padding: 0;
+}
+
+.goal, .hobbies__value {
+    flex: 1;                     
+    background: var(--card-bg);  
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-smooth);
+}
+
+.goal:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 4px 20px rgba(29, 29, 29, 0.15); 
+}
+
+.hobbies__value:hover {
+    border-color: var(--leafy-green); 
+    box-shadow: 0 4px 20px rgba(42, 157, 143, 0.15); 
+}
+
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -475,41 +450,14 @@ main h2 {
     font-size: 0.95rem;
 }
 
-/* Customizing the Semantic HTML5 Progress Bar */
 .skill-bar {
     width: 100%;
     height: 10px;
     accent-color: var(--accent-color);
 }
 
-.multimedia-container {
-    max-width: 1200px;         
-    margin: 2rem auto;         
-    padding: 0 1.5rem;         
-    width: 100%;
-    align-items: center;
-}
-
-.about-video {
-    width: 100%;               
-    max-width: 800px;          
-    display: block;            
-    margin: 1.5rem auto 0;     
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
-    border: 1px solid var(--border-color);
-}
-
-.about-audio {
-    display: block;
-    width: 100%;
-    margin-top: 2rem;
-    max-width: 1200px;
-    align-items: center;
-}
-
 /* ==========================================================================
-   8. PROJECTS PAGE CARD MATRIX
+   6. PROJECTS GRID MATRIX
    ========================================================================== */
 .projects-grid {
     display: grid;
@@ -518,12 +466,6 @@ main h2 {
     max-width: 1200px;
     margin: 0 auto;
     padding: 4rem 5%;
-}
-
-@media (max-width: 768px) {
-    .projects-grid {
-        padding: 2rem 1.25rem;
-    }
 }
 
 .project-card {
@@ -599,7 +541,129 @@ main h2 {
 }
 
 /* ==========================================================================
-   9. ACADEMIC PLANNER DASHBOARD DESIGN (Split Panel Layout)
+   7. CONTACT PAGE LAYOUT & FAQS
+   ========================================================================== */
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-details {
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.contact-detail {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--card-bg);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.contact-detail__icon {
+    color: var(--accent-color);
+    font-size: 1.25rem;
+}
+
+.contact-detail__label {
+    font-weight: 600;
+    min-width: 100px;
+}
+
+.contact-form-card {
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-input, .form-select, .form-textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    transition: var(--transition-smooth);
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.15);
+}
+
+.form-success {
+    display: none; 
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: rgba(42, 157, 143, 0.15);
+    border-left: 4px solid var(--leafy-green);
+    color: #1b655c;
+    border-radius: 4px;
+}
+
+.fade {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;                 
+    margin-top: 2.5rem;
+}
+
+.fade > div {
+    flex: 1;                     
+    background: #ffffff;  
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-smooth);
+}
+
+.fade > div h3 {
+    color: #0f172a ;  
+    margin-bottom: 0.75rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+.fade > div p {
+    color: #334155 ;   
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.fade > div:hover {
+    transform: translateY(-4px);
+    border-color: var(--leafy-green);
+    box-shadow: 0 4px 20px rgba(42, 157, 143, 0.15);
+}
+
+.social-link {
+    display: block;          
+    margin-bottom: 0.75rem;  
+    width: fit-content;      
+}
+
+/* ==========================================================================
+   8. ACADEMIC PLANNER DASHBOARD DESIGN (Split Panel Layout)
    ========================================================================== */
 .metrics-container {
     display: flex;
@@ -697,7 +761,6 @@ main h2 {
     background: #1e3a5f;
 }
 
-/* Dynamic JS Generated Task List Elements */
 .task-board-list {
     display: flex;
     flex-direction: column;
@@ -723,7 +786,6 @@ main h2 {
     transition: var(--transition-smooth);
 }
 
-/* Task Priority Indicators */
 .task-item.priority-High { border-left-color: var(--accent-color); }
 .task-item.priority-Medium { border-left-color: #f59e0b; }
 .task-item.priority-Low { border-left-color: var(--leafy-green); }
@@ -761,250 +823,112 @@ main h2 {
     gap: 0.5rem;
 }
 
-.action-btn {
-    border: none;
-    padding: 0.4rem 0.75rem;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: var(--transition-smooth);
-}
-
 .complete-btn { background: #d1fae5; color: #065f46; }
 .complete-btn:hover { background: #a7f3d0; }
 .delete-btn { background: #fee2e2; color: #991b1b; }
 .delete-btn:hover { background: #fecaca; }
 
+
 /* ==========================================================================
-   10. ADDITIONS TO RESPONSIVE MEDIA QUERIES
+   9. GROUPED RESPONSIVE MOBILE SETTINGS (Viewports <= 768px & 968px)
    ========================================================================== */
-/* Change from 868px to 968px */
 @media (max-width: 968px) {
+    .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
     .hero-section {
         flex-direction: column-reverse;
         text-align: center;
         padding: 2rem 1rem;
     }
-    
     .hero-text h1 { font-size: 2.2rem; }
     .profile-img { width: 220px; height: 220px; }
-    
     .metrics-container { flex-direction: column; gap: 0.75rem; }
     .dashboard-grid { grid-template-columns: 1fr; }
 }
 
-/* ==========================================================================
-   GOALS CONTAINER & CARDS LAYOUT (Side-by-Side Flexbox)
-   ========================================================================== */
-.goals-container {
-    display: flex;
-    gap: 1.5rem;                 
-    width: 100%;
-    margin-top: 1.5rem;
-}
-
-.goal {
-    flex: 1;                     
-    background: var(--card-bg);  
-    padding: 1.5rem;
-    border-radius: var(--radius-md);
-    border: 1px solid var(--border-color);
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition-smooth);
-}
-
-/* Subtle interactive cyber-glow effect when hovering over a goal box */
-.goal:hover {
-    transform: translateY(-4px);
-    border-color: var(--accent-color);
-    box-shadow: 0 4px 20px rgba(29, 29, 29, 0.15); 
-}
-/* Responsive adjustment: Stack them vertically on mobile screens so they don't squish */
 @media (max-width: 768px) {
-    .goals-container {
-        flex-direction: column;
-        gap: 1rem;
+    /* Navbar Mobile Row Constraints */
+    .navbar {
+        flex-direction: row; 
+        justify-content: space-between;
+        padding: 1rem 5%;
     }
 
+    .menu-toggle {
+        display: block !important;
+        position: relative; 
+        z-index: 1005;      
+        cursor: pointer;    
+        background: transparent;
+        border: none;
+        color: var(--text-white);
+        font-size: 1.5rem;
+    }
+
+    /* Mobile Absolute Navigation Panel Tray Dropdown */
     .nav-links {
-        display: none;
-    }
-}
-
-/* ==========================================================================
-   HOBBIES LAYOUT (Side-by-Side Flexbox - Miva Theme)
-   ========================================================================== */
-.hobbies-list {
-    display: flex;
-    gap: 1.5rem;                 
-    width: 100%;
-    margin-top: 1.5rem;
-    list-style: none;            
-    padding: 0;
-}
-
-.hobbies__value {
-    flex: 1;                     
-    background: var(--card-bg);  
-    padding: 1.5rem;
-    border-radius: var(--radius-md);
-    border: 1px solid var(--border-color);
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition-smooth);
-}
-
-/* Elegant Miva hover effect matching your goals section */
-.hobbies__value:hover {
-    transform: translateY(-4px);
-    border-color: var(--leafy-green); 
-    box-shadow: 0 4px 20px rgba(42, 157, 143, 0.15); 
-}
-
-/* Responsive breakpoint: Stacks them cleanly on smartphones */
-@media (max-width: 768px) {
-    .hobbies-list {
+        display: flex;
         flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-color); 
+        padding: 1.5rem 0;
         gap: 1rem;
+        
+        /* Animation State Initialization */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-15px);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1000;      
     }
-}
 
-/* ==========================================================================
-   FOOTER STYLING 
-   ========================================================================== */
-.footer {
-    background-color: var(--primary-color); 
-    color: var(--text-muted, #94a3b8);       
-    padding: 4rem 0 2rem 0;
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    border-top: 1px solid var(--border-color);
-    width: 100%;
-}
-
-.footer__inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 5%;
-}
-
-.footer__top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 3rem;
-    flex-wrap: wrap;                  
-}
-
-/* Brand column wrapper layout handles sizing */
-.footer__top > div:first-child {
-    flex: 2;
-    min-width: 250px;
-}
-
-.footer__top > div:not(:first-child) {
-    flex: 1;
-    min-width: 150px;
-}
-
-.footer__brand {
-    color: var(--text-white, #ffffff); 
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-}
-
-.footer__tagline {
-    line-height: 1.6;
-    font-size: 0.95rem;
-    max-width: 340px;
-    color: var(--text-muted, #94a3b8);
-    text-align: left;
-}
-
-.footer__column-title {
-    color: var(--text-white, #ffffff);
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 1.25rem;
-    font-weight: 600;
-}
-
-/* Arranges links vertically inside columns */
-.footer__links {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-
-.footer__links a {
-    color: var(--text-muted, #94a3b8);
-    text-decoration: none;
-    font-size: 0.95rem;
-    width: fit-content;
-    transition: color 0.2s ease;
-}
-
-.footer__links a:hover {
-    color: var(--leafy-green);         
-}
-
-/* Horizontal line divider and bottom layout row */
-.footer__bottom {
-    max-width: 1200px;
-    margin: 3.5rem auto 0 auto;
-    padding: 1.5rem 5% 0 5%;
-    border-top: 1px solid rgba(255, 255, 255, 0.05); 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.85rem;
-    color: var(--text-muted, #94a3b8);
-}
-
-.footer__social {
-    display: flex;
-    gap: 1.25rem;
-}
-
-.footer__social a {
-    color: var(--text-muted, rgba(255, 255, 255, 0.4));
-    text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.2s ease, transform 0.2s ease;
-}
-
-.footer__social a:hover {
-    color: var(--leafy-green);         
-    transform: translateY(-2px);
-}
-
-/* Responsive adjustment for clean stacking on mobile viewports */
-@media (max-width: 768px) {
-    .footer {
-        padding: 0;
-        margin: 0;
+    .nav-links.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
     }
-    .footer__top {
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links li a {
+        display: block;
+        padding: 0.75rem 0;
+        font-size: 1.1rem;
+        width: 100%;
+    }
+
+    /* Shared Page Layout Adjustments */
+    .page-banner { padding: 3rem 1rem; }
+    .contact-form-card { padding: 1.5rem; }
+    .section { padding: 2rem 3%; }
+    .contact-form-card, .form-card, .display-card { padding: 1.25rem; }
+    
+    .contact-detail {
         flex-direction: column;
-        gap: 2rem;
+        align-items: flex-start;
+        gap: 0.25rem;
     }
+    .contact-detail__label { min-width: auto; }
+    
+    .fade > div { flex: 1 1 100%; }
+    .projects-grid { padding: 2rem 1.25rem; }
+    .goals-container, .hobbies-list { flex-direction: column; gap: 1rem; }
+    
+    /* Footer Stacking */
+    .footer { padding: 2rem 0; }
+    .footer__top { flex-direction: column; gap: 2rem; }
     .footer__bottom {
         flex-direction: column;
         gap: 1.25rem;
         text-align: center;
         margin-top: 2.5rem;
     }
-}
-
-.social-link {
-    display: block;          
-    margin-bottom: 0.75rem;  
-    width: fit-content;      
-}
-
-.table-container {
-    width: 100%;
-    overflow-x: auto; /* Adds a localized horizontal scrollbar ONLY for the table on small viewports */
-    -webkit-overflow-scrolling: touch; /* Ensures smooth physics scrolling on mobile browsers */
-    margin-top: 1.5rem;
 }
