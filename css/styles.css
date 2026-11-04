@@ -318,7 +318,7 @@ main {
 }
 
 main h2 {
-    color: var(--primary-color);
+    color: #991b1b;
     margin-bottom: 1rem;
     font-size: 1.75rem;
     border-bottom: 2px solid var(--border-color);
@@ -637,6 +637,9 @@ main h2 {
     transition: var(--transition-smooth);
 }
 
+iframe {
+    padding-top: 5px;
+}
 .fade > div h3 {
     color: #0f172a ;  
     margin-bottom: 0.75rem;
